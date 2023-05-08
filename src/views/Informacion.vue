@@ -1,7 +1,7 @@
 <template>
   <section class="container-fluid w-100 section-informacion">
     <Modal />
-    <Navbar />
+    <Nav />
     <div>
       <ul class="nav d-flex flex-column align-items-start lista_informacion">
         <li class="item-info">
@@ -36,7 +36,7 @@
 
 <script setup>
 import Modal from "../components/Modal.vue";
-import Navbar from "../layout/NavBar.vue";
+import Nav from "../layout/Nav.vue";
 import Footer from "../layout/Footer.vue";
 </script>
 

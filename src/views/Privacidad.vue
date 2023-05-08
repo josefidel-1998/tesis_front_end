@@ -1,7 +1,7 @@
 <template>
   <section class="w-100 container-sm section_privacidad">
     <Modal />
-    <Navbar />
+    <Nav />
     <div class="privacidad">
       <h2>Su privacidad es importante para nosotros</h2>
       <p>
@@ -17,7 +17,7 @@
 <script setup>
 import Modal from "../components/Modal.vue";
 import Footer from "../layout/Footer.vue";
-import Navbar from "../layout/NavBar.vue";
+import Nav from "../layout/Nav.vue";
 </script>
 <style scoped>
 

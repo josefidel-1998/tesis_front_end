@@ -1,13 +1,13 @@
 <template>
   <div>
     <header class="shadow-sm header-principal">
-    <nav class="navbar navbar-expand-lg">
+    <nav class="Nav Nav-expand-lg">
       <div class="container-fluid">
         <h1 class="naranja">{{ $route.name }} </h1>
-        <button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="hamburguesa">
+        <button type="button" data-bs-toggle="collapse" data-bs-target="#NavNav" aria-controls="NavNav" aria-expanded="false" aria-label="Toggle navigation" id="hamburguesa">
           <i class="bi bi-list fs-3 naranja"></i>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse Nav-collapse" id="NavNav">
         <ul class="nav-bar mb-5 menu">
           <li>
             <i class="bi bi-shield-check fs-3 naranja"></i>
@@ -89,7 +89,7 @@
     color: rgba(187, 4, 4, 0.79);
   }
 
-  .navbar > .container-fluid {
+  .Nav > .container-fluid {
     justify-content: flex-start!important;
     width: 100%;
 }
@@ -98,7 +98,7 @@
   margin: 20px 0 0!important;
 }
 
-#navbarNav ul {
+#NavNav ul {
   padding-left: 0%!important;
   height: 700px;
   background: #ffffffe5;
@@ -124,8 +124,8 @@
     margin: 0 20px 5px auto;
 }
 
-.navbar {
-  --bs-navbar-padding-y: 0!important;
+.Nav {
+  --bs-Nav-padding-y: 0!important;
 }
 
 </style>

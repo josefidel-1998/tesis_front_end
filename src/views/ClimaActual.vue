@@ -1,7 +1,7 @@
 <template>
   <section>
     <Modal />
-    <Navbar />
+    <Nav />
     <span class="lds-dual-ring" v-if="bandera"></span>
     <section v-else class="portada relative">
       <div>
@@ -71,7 +71,7 @@
 </template>
 
 <script setup>
-import Navbar from "../layout/NavBar.vue";
+import Nav from "../layout/Nav.vue";
 import Footer from "../layout/Footer.vue";
 import Modal from "../components/Modal.vue";
 import FaseLunar from "../components/FaseLunar.vue";

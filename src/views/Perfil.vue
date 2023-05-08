@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navbar />
+    <Nav />
     <section id="perfil">
       <Modal />
       <div>
@@ -50,12 +50,12 @@
 
 <script>
 import Footer from "../layout/Footer.vue";
-import Navbar from "../layout/NavBar.vue";
+import Nav from "../layout/Nav.vue";
 import Modal from "../components/Modal.vue";
 import { usePinia } from "../store/pinia.js";
 export default {
   components: {
-    Navbar,
+    Nav,
     Modal,
     Footer,
   },

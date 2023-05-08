@@ -41,7 +41,7 @@
 <script setup>
 import Modal from "../components/Modal.vue";
 import Footer from "../layout/Footer.vue";
-import Navbar from "../layout/Navbar.vue";
+import Nav from "../layout/Nav.vue";
 import { ref } from "vue";
 import { useRoute } from "vue-router";
 

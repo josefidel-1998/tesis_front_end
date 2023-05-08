@@ -1,7 +1,7 @@
 <template>
   <section class="container-fluid" id="peces_section">
     <div class="container-fluid">
-      <Navbar />
+      <Nav />
       <Modal />
       <div id="divinput" class="input-group input__form">
         <input
@@ -40,7 +40,7 @@
 <script setup>
 import Footer from "../layout/Footer.vue";
 import Modal from "../components/Modal.vue";
-import Navbar from "../layout/Navbar.vue";
+import Nav from "../layout/Nav.vue";
 import { ref, onMounted } from "vue";
 import { usePinia } from "../store/pinia.js";
 const pinia = usePinia();

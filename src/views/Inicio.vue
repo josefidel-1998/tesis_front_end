@@ -1,7 +1,7 @@
 <template>
   <section class="seccion__inicio">
     <Modal />
-    <Navbar />
+    <Nav />
     <div id="bienvenida">
       <h2>
         ¡Bienvenido/a <span class="separador">{{ nombre }}!</span>
@@ -39,7 +39,7 @@
 import { ref, onMounted } from "vue";
 import Footer from "../layout/Footer.vue";
 import Modal from "../components/Modal.vue";
-import Navbar from "../layout/NavBar.vue";
+import Nav from "../layout/Nav.vue";
 const nombre = ref("");
 onMounted(() => {
   const id = JSON.parse(localStorage.getItem("id"));

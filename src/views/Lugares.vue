@@ -2,7 +2,7 @@
   <section class="container-fluid">
     <div class="container-fluid mt-4">
       <Modal />
-      <Navbar />
+      <Nav />
       <form id="divinput" class="input-group mb-3 ver">
         <input
           id="buscador"
@@ -62,7 +62,7 @@
 <script setup>
 import Footer from "../layout/Footer.vue";
 import Modal from "../components/Modal.vue";
-import Navbar from "../layout/Navbar.vue";
+import Nav from "../layout/Nav.vue";
 import { ref, onMounted } from "vue";
 import { usePinia } from "../store/pinia.js";
 const pinia = usePinia();

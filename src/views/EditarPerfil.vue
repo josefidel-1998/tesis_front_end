@@ -1,7 +1,7 @@
 <template>
   <section id="editar-perfil">
     <Modal />
-    <Navbar />
+    <Nav />
     <form
       id="form-welcome"
       class="container-fluid"
@@ -116,7 +116,7 @@
 
 <script setup>
 import Modal from "../components/Modal.vue";
-import Navbar from "../layout/NavBar.vue";
+import Nav from "../layout/Nav.vue";
 import Footer from "../layout/Footer.vue";
 import { usePinia } from "../store/pinia.js";
 import { ref, onMounted } from "vue";

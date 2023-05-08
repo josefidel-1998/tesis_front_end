@@ -18,7 +18,7 @@
       <span class="lds-dual-ring" v-if="pinia.banderaImgs"></span>
       <article class="shadow" v-for="pez in pinia.filtroPeces" :key="pez._id">
         <figure>
-          <img :src="'/src/assets/peces/' + pez.img" :alt="pez.nombres" />
+          <img :src="pez.img" :alt="pez.nombres" />
           <figcaption>
             <h2>{{ pez.nombres }}</h2>
             <routerLink

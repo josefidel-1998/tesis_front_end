@@ -23,7 +23,7 @@
       >
         <figure>
           <img
-            :src="'/src/assets/campings/' + ubicaciones.img"
+            :src="ubicaciones.img"
             :alt="ubicaciones.nombre"
           />
           <figcaption>

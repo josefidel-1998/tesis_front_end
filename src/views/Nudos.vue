@@ -6,7 +6,7 @@
       <span class="lds-dual-ring" v-if="pinia.banderaImgs"></span>
       <li class="shadow" v-for="nudo in pinia.nudos" :key="nudo._id">
         <div>
-          <img :src="'/src/assets/nudos/' + nudo.img" :alt="nudo.nombre" />
+          <img :src="nudo.img" :alt="nudo.nombre" />
           <div>
             <h2>{{ nudo.nombre }}</h2>
             <routerLink

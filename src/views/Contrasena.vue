@@ -8,7 +8,7 @@
       <h1>Contraseña</h1>
     </header>
     <h2>Cambia tu contraseña</h2>
-    <form id="form-contrasena" class="row mb-4" @submit.prevent="cambiarContrasenia">
+    <form id="form-contrasena" class="row mb-4" @submit="cambiarContrasenia">
       <fieldset class="w-100">
         <div
           class="col mb-4 inputs-controls d-flex items-center justify-content-center"

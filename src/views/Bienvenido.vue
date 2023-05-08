@@ -84,7 +84,7 @@ const password = ref("");
 let errorUsuario = ref("");
 let errorPassword = ref("");
 
-var show = false;
+let show = ref(false);
 
 function validar() {
   validarNombre();

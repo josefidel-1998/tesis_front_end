@@ -25,6 +25,7 @@ export const usePinia = defineStore('biufortGlobal', {
       })
         .then(response => response.json())
         .then(data => {
+          console.log(data)
             this.banderaImgs = false;
             this.peces = data;
             this.filtroPeces = data;

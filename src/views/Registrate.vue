@@ -51,13 +51,15 @@
           <i class="bi bi-bag-x fs-3 naranja"></i>
           <input
             class="ms-3 ingreso-form"
-            type="password"
+            :type="show === true ? 'text' : 'password'"
             id="password"
             placeholder="Contraseña"
             @keypress="validarPassword"
             @change="validarPassword"
             v-model="password"
           />
+          <i class="bi bi-eye show-icon naranja" v-if="show" @click="show = !show"></i>
+          <i class="bi bi-eye-slash hide-icon naranja" v-else @click="show = !show"></i>
         </div>
         <span class="d-block text-center text-danger mb-4">{{
           errorPassword
@@ -88,6 +90,7 @@ const errorMail = ref("");
 const errornombre = ref("");
 const errorPassword = ref("");
 
+let show = ref(false);
 function Registrarse() {
   const datos = {
     nombre: nombre.value,

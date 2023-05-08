@@ -10,7 +10,7 @@
     <ul class="card" id="detalle_nudo">
       <li class="card-body li-nudos">
         <img
-          :src="'/src/assets/nudos/' + nudo.img"
+          :src="nudo.img"
           :alt="nudo.nombre"
           class="card-img-top mb-4"
         />

@@ -10,7 +10,7 @@
     <div class="card" id="carta_pez">
       <figure class="card-body">
         <img
-          :src="'/src/assets/peces/' + pez.img"
+          :src="pez.img"
           :alt="pez.nombres"
           class="card-img-top mb-4"
         />

@@ -44,14 +44,6 @@ const routes = [
       },
     },
     {
-      path: '/nav',
-      name: 'Menu Navegacion',
-      component: () => import('../views/Nav.vue'),
-      meta: {
-        requireAuth: true
-      },
-    },
-    {
       path: '/contrasenia',
       name: 'Contrasenia',
       component: () => import('../views/Contrasena.vue'),

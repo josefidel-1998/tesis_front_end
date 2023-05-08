@@ -16,11 +16,14 @@
           <i class="bi bi-bag-x fs-3 naranja"></i>
           <input
             class="ms-3 w-75"
+            :type="show === true ? 'text' : 'password'"
             type="password"
             id="password"
             placeholder="Contraseña"
             name="password"
           />
+          <i class="bi bi-eye show-icon naranja" v-if="show" @click="show = !show"></i>
+          <i class="bi bi-eye-slash hide-icon naranja" v-else @click="show = !show"></i>
         </div>
         <div
           class="col mb-4 inputs-controls d-flex items-center justify-content-center"
@@ -28,11 +31,14 @@
           <i class="bi bi-bag-plus fs-3 naranja"></i>
           <input
             class="ms-3 w-75"
+            :type="show === true ? 'text' : 'password'"
             type="password"
             id="nuevo-password"
             placeholder="Nueva contraseña"
             name="nueva"
           />
+          <i class="bi bi-eye show-icon naranja" v-if="show" @click="show = !show"></i>
+          <i class="bi bi-eye-slash hide-icon naranja" v-else @click="show = !show"></i>
         </div>
         <div
           class="col mb-4 inputs-controls d-flex items-center justify-content-center"
@@ -40,11 +46,14 @@
           <i class="bi bi-bag-check fs-3 naranja"></i>
           <input
             class="ms-3 w-75"
+            :type="show === true ? 'text' : 'password'"
             type="password"
             id="repetir-nuevo-password  "
             placeholder="Repetir contraseña nueva"
             name="repetir"
           />
+          <i class="bi bi-eye show-icon naranja" v-if="show" @click="show = !show"></i>
+          <i class="bi bi-eye-slash hide-icon naranja" v-else @click="show = !show"></i>
         </div>
         <div class="row w-100 mt-5 mx-auto d-grid">
           <button type="submit" class="btn fondoNaranja text-white">
@@ -61,6 +70,8 @@ import Modal from "../components/Modal.vue";
 import Footer from "../layout/Footer.vue";
 import {cambiarPassword} from "../services/cambiarPassword.js"
 import {ref, onMounted} from "vue";
+
+let show = ref(false)
 
 const cambiarContrasenia = e => {
   

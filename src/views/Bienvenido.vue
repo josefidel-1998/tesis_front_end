@@ -56,7 +56,7 @@
       <router-link to="/registrate">Registrate</router-link>
       <span
         class="text-center d-block py-1 px-3 fs-6 text-success w-50 mx-auto"
-        v-if="pinia.bandera"
+        v-if="pinia.banderaCrearCuenta"
         >Te creaste una cuenta</span
       >
       <span
@@ -72,12 +72,14 @@
 import Modal from "../components/Modal.vue";
 import { usePinia } from "../store/pinia.js";
 import { login } from "../services/autenticacion";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, watch } from "vue";
 import { useRouter } from "vue-router";
 
 const pinia = usePinia();
 const router = useRouter();
 
+let contador = ref(0);
+let intervalo = ref(() => {})
 const usuario = ref("");
 const password = ref("");
 
@@ -130,8 +132,24 @@ function logearse(datos) {
 }
 
 onMounted(() => {
+  console.log(pinia.banderaSesion)
+  if(pinia.banderaSesion){
+         intervalo.value = setInterval(() => {
+          contador.value++;
+          console.log(contador.value)
+          if(contador.value == 5){
+            pinia.banderaSesion = false;
+            pinia.banderaCrearCuenta = false;
+          }
+        }, 1000);
+      }
   console.log(pinia.banderaSesion);
 });
+watch(contador, numero => {
+  if(numero == 5){
+    clearInterval(intervalo.value)
+  }
+})
 
 </script>
 

@@ -5,7 +5,7 @@
     <span class="lds-dual-ring" v-if="bandera"></span>
     <section v-else class="portada relative">
       <div>
-        <h2 class="fs-5">{{ nombreLocal }}</h2>
+        <h2 class="fs-5 pt-4">{{ nombreLocal }}</h2>
         <p id="temperatura-valor">{{ datosClima.temp }} °C</p>
         <span id="tem__span">
           <p>{{ datosClima.tMin }} °C</p>
@@ -201,7 +201,8 @@ onMounted(() => {
     )
       .then((r) => r.json())
       .then((datos) => {
-        nombreLocal.value = datos[0].local_names.es;
+        console.log(datos)
+        nombreLocal.value = datos[0].name;
       });
   });
 

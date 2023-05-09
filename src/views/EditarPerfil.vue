@@ -6,7 +6,6 @@
       id="form-welcome"
       class="container-fluid"
       @submit.prevent="editarPerfil"
-      enctype="multipart/form-data"
     >
       <fieldset>
         <article class="row d-flex flex-column">
@@ -23,11 +22,10 @@
               name="nombre"
               @change="validarNombre"
               @keypress="validarNombre"
+              @keyup="validarNombre"
               v-model="nombre"
             />
-            <span class="d-block text-center text-danger mb-4">{{
-              validacionNombre
-            }}</span>
+            <span class="d-block text-center text-danger mb-4">{{validacionNombre}}</span>
           </div>
         </article>
         <article class="d-flex flex-column gap-4">
@@ -106,8 +104,8 @@
             </div>
           </div>
         </article>
-        <button type="submit">Guardar datos</button>
-        <a href="/" id="cancelar">Cancelar</a>
+        <input type="submit" id="confirmar" value="Guardar datos"/>
+        <router-link to="/perfil" id="cancelar">Cancelar</router-link>
       </fieldset>
     </form>
     <Footer />
@@ -121,8 +119,6 @@ import Footer from "../layout/Footer.vue";
 import { usePinia } from "../store/pinia.js";
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
-//import formData from "form-data";
-//import axios from "axios";
 
 const pinia = usePinia();
 const nombre = ref("");
@@ -130,7 +126,7 @@ const agua = ref("");
 const nivel = ref("");
 const pez = ref("");
 const peces = ref([]);
-const router = useRouter();
+let router = useRouter();
 let validacionNombre = ref("");
 let verificar = ref(false);
 let id = JSON.parse(localStorage.getItem("id"));
@@ -151,7 +147,7 @@ function validarNombre() {
   }
 }
 
-function editarPerfil() {
+const editarPerfil = () => {
   const datos = {
     nombre: nombre.value,
     preferencias: {
@@ -161,7 +157,7 @@ function editarPerfil() {
     },
   };
 
-  if (verificar.value == true) {
+  if (verificar.value == true || nombre.value) {
     fetch(`https://server4-sand.vercel.app/api/usuarios/${id}`, {
       method: "PATCH",
       headers: {
@@ -169,16 +165,19 @@ function editarPerfil() {
         "auth-token": $cookies.get("token"),
       },
       body: JSON.stringify(datos),
-    }).then((r) => {
+    })
+    .then((r) => {
       if (r.ok) {
-        router.push("/perfil");
+        pinia.bandera = true;
+        router.push('/perfil');
         console.log(r);
       }
-    });
+    })
   }
 }
 
 onMounted(() => {
+
   fetch(`https://server4-sand.vercel.app/api/usuarios/${id}`, {
     method: "GET",
     headers: {
@@ -193,7 +192,6 @@ onMounted(() => {
       nivel.value = data.preferencias.nivel;
       pez.value = data.preferencias.pez;
     });
-  pinia.bandera = true;
 
   fetch("https://server01-tesis.vercel.app/api/peces")
     .then((response) => response.json())
@@ -222,7 +220,7 @@ onMounted(() => {
   margin-bottom: 10px;
 }
 
-#form-welcome fieldset button {
+#confirmar {
   margin: 20px auto;
   padding: 10px 0;
   background-color: #ff4d01;

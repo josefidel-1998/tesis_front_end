@@ -107,7 +107,7 @@ function Registrarse() {
   })
     .then((r) => {
       console.table(r);
-      pinia.bandera = true;
+      pinia.banderaCrearCuenta = true;
       router.push({ path: "/" });
     })
     .catch((e) => console.error(e.message));

@@ -4,6 +4,7 @@ export const usePinia = defineStore('biufortGlobal', {
     state: () => {
       return { 
         bandera: false, 
+        banderaCrearCuenta: false,
         filtroPeces: [], 
         peces: [],
         ubicaciones: [],

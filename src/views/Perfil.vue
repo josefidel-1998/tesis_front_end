@@ -11,7 +11,7 @@
           <img class="naranja" src="/src/assets/usuario.png" alt="usuario" />
         </template>
       </div>
-      <div>
+      <div class="datos__div">
         <h2 class="text-center">{{ nombre }}</h2>
         <ul>
           <li>
@@ -53,7 +53,7 @@ import Footer from "../layout/Footer.vue";
 import Nav from "../layout/Nav.vue";
 import Modal from "../components/Modal.vue";
 import { usePinia } from "../store/pinia.js";
-export default {
+export default{
   components: {
     Nav,
     Modal,
@@ -69,6 +69,8 @@ export default {
       email: "",
       preferencias: {},
       imagen: "",
+      contador: 0,
+      intervalo: () => {}
     };
   },
   mounted() {
@@ -82,15 +84,24 @@ export default {
         this.nombre = data.nombre;
         this.email = data.email;
       });
-      /*
-            fetch(`https://server4-sand.vercel.app/api/imagenes/${id}`)
-      .then((datos) => datos.json())
-      .then((data) => {
-        const { imagen } = data.datos;
-        this.imagen = imagen;
-      });
-      */
+
+      if(this.pinia.bandera){
+         this.intervalo = setInterval(() => {
+          this.contador++;
+          console.log(this.contador)
+          if(this.contador == 5){
+            this.pinia.bandera = false;
+          }
+        }, 1000);
+      }
   },
+  watch:{
+    contador(num){
+      if(num == 5){
+        clearInterval(this.intervalo)
+      }
+    }
+  }
 };
 </script>
 
@@ -141,5 +152,8 @@ export default {
 
 #perfil i {
   font-size: 20px !important;
+}
+.datos__div{
+  min-height: 80vh;
 }
 </style>
